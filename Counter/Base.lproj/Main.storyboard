@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Значение счетчика:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nv-qe-gv2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Значение счетчика:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nv-qe-gv2" userLabel="Counter Label">
                                 <rect key="frame" x="16" y="112" width="361" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
@@ -49,7 +49,7 @@
                                     <action selector="minusOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="94T-Mi-dqr"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="История изменений:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ejQ-li-6dd">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="История изменений:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ejQ-li-6dd">
                                 <rect key="frame" x="16" y="480" width="361" height="338"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,11 +75,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="counter" destination="3nv-qe-gv2" id="7eS-mg-Fvz"/>
-                        <outlet property="history" destination="ejQ-li-6dd" id="UkE-kM-Jx7"/>
-                        <outlet property="minus" destination="TIk-co-95s" id="jFm-bf-UVk"/>
-                        <outlet property="plus" destination="Tq5-tf-vGk" id="eDG-h8-xb5"/>
-                        <outlet property="reset" destination="ugp-AZ-VW2" id="aQe-Am-N2M"/>
+                        <outlet property="counterLabel" destination="3nv-qe-gv2" id="JOj-kT-eaK"/>
+                        <outlet property="historyTextView" destination="ejQ-li-6dd" id="MVK-Yh-Xq8"/>
+                        <outlet property="minusButton" destination="TIk-co-95s" id="bY8-sv-KFS"/>
+                        <outlet property="plusButton" destination="Tq5-tf-vGk" id="nFv-nE-jge"/>
+                        <outlet property="resetButton" destination="ugp-AZ-VW2" id="JML-9t-7BU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

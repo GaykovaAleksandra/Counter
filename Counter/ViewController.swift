@@ -1,66 +1,65 @@
-//
-//  ViewController.swift
-//  Counter
-//
-//  Created by Александра Гайкова on 5.01.25.
-//
-
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
-   
-    @IBOutlet weak var counter: UILabel!
-    @IBOutlet weak var plus: UIButton!
-    @IBOutlet weak var minus: UIButton!
-    @IBOutlet weak var reset: UIButton!
-    @IBOutlet weak var history: UITextView!
+final class ViewController: UIViewController {
     
-    func scroll() {
-        history.scrollRangeToVisible(history.selectedRange)
-    }
+    @IBOutlet private weak var counterLabel: UILabel!
+    
+    @IBOutlet private weak var plusButton: UIButton!
+    
+    @IBOutlet private weak var minusButton: UIButton!
+    
+    @IBOutlet private weak var resetButton: UIButton!
+    
+    @IBOutlet private weak var historyTextView: UITextView!
+    
+    private var a = 0
     
     override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(true)
-
-        history.scrollRangeToVisible(NSMakeRange(16, 480))
-    }
-    
-    func dateAndTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
-       let dateString = dateFormatter.string(from: Date())
-        return dateString
+        super.viewDidAppear(true)
+        
+        historyTextView.scrollRangeToVisible(NSMakeRange(16, 480))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        history.isScrollEnabled = true
-        counter.text = "0"
-        // Do any additional setup after loading the view.
+        historyTextView.isScrollEnabled = true
+        counterLabel.text = "0"
     }
-    private var a = 0
     
-    @IBAction func plusOne(_ sender: Any) {
+    private func scroll() {
+        historyTextView.scrollRangeToVisible(historyTextView.selectedRange)
+    }
+    
+    private func dateAndTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY HH:MM:SS"
+        let dateString = dateFormatter.string(from: Date())
+        return dateString
+    }
+    
+    @IBAction private func plusOne(_ sender: Any) {
         a += 1
-        counter.text = "Значение счетчика: \(a)"
-        history.text += "\n\(dateAndTime()): Значение изменено на +1"
+        counterLabel.text = "Значение счетчика: \(a)"
+        historyTextView.text += "\n\(dateAndTime()): Значение изменено на +1"
         scroll()
     }
     
-    @IBAction func minusOne(_ sender: Any) {
+    @IBAction private func minusOne(_ sender: Any) {
         if a != 0 {
             a -= 1
-            history.text += "\n\(dateAndTime()): Значение изменено на -1"
-            counter.text = "Значение счетчика: \(a)"
+            historyTextView.text += "\n\(dateAndTime()): Значение изменено на -1"
+            counterLabel.text = "Значение счетчика: \(a)"
             scroll()
+        } else {
+            historyTextView.text += "\n\(dateAndTime()):попытка уменьшить значение счетчика ниже 0"
         }
     }
     
-    @IBAction func zeroingOut(_ sender: Any) {
+    @IBAction private func zeroingOut(_ sender: Any) {
         a = 0
-        counter.text = "0"
-        history.text += "\n\(dateAndTime()): Значение сброшено"
+        counterLabel.text = "0"
+        historyTextView.text += "\n\(dateAndTime()): Значение сброшено"
         scroll()
     }
     
